@@ -22,13 +22,13 @@ module.exports = function(lineman) {
     // requests for paths that don't match a static asset in ./generated will be forwarded to
     // whatever service might be running on the specified port.
     //
-    // server: {
-    //   apiProxy: {
-    //     enabled: true,
-    //     host: 'localhost',
-    //     port: 3000
-    //   }
-    // }
+    server: {
+       apiProxy: {
+         enabled: true,
+         host: 'localhost',
+         port: 3000
+       }
+    }
 
     // Sass
     //

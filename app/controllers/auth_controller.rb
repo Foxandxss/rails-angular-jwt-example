@@ -19,7 +19,7 @@ class AuthController < ApplicationController
       render json: { user: user,
                      token: token }
     else
-      render json: { errors: "Invalid email/password combination" }
+      render json: { error: "Invalid email/password combination" }, status: :unauthorized
     end
   end
 

@@ -1,11 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
   <head>
     <title><%= pkg.name %></title>
 
     <link rel="stylesheet" type="text/css" href="<%= css %>" media="all" />
   </head>
   <body>
+    <nav class="navbar navbar-default" role="navigation" ng-controller="NavController">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-click="isCollapsed = !isCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Angular messages</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" collapse="isCollapsed">
+          <ul class="nav navbar-nav">
+            <li ng-show="auth.isAuthenticated()"><a href="#/messages">Messages</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-hide="auth.isAuthenticated()"><a href="#/login">Login</a></li>
+            <li ng-hide="auth.isAuthenticated()"><a href="#/register">Register</a></li>
+            <li ng-show="auth.isAuthenticated()"><p class="navbar-text">Hello, <strong>{{user().email}}</strong></p></li>
+            <li ng-show="auth.isAuthenticated()"><a href="#" ng-click="logout()">Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div ui-view></div>
+
     <script type="text/javascript" src="<%= js %>"></script>
   </body>
 </html>
