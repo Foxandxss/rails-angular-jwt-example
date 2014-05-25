@@ -1,0 +1,15 @@
+{
+  "name": "jwt-example",
+  "description": "An Angular frontend for JWT example",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Jesus Rodriguez",
+  "devDependencies": {
+    "lineman": "~0.30.0",
+    "lineman-angular": "~0.2.0"
+  },
+  "scripts": {
+    "start": "lineman run",
+    "test": "lineman spec-ci"
+  }
+}
