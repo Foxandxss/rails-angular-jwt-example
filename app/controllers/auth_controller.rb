@@ -23,6 +23,15 @@ class AuthController < ApplicationController
     end
   end
 
+  def token_status
+    token = params[:token]
+    if AuthToken.valid? token
+      head 200
+    else
+      head 401
+    end
+  end
+
   private
 
     def user_params

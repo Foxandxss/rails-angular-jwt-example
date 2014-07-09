@@ -1,5 +1,16 @@
 angular.module('app')
   .factory('Auth', function($http, LocalService, AccessLevels) {
+    function checkTokenStatus(token) {
+      $http.get('/auth/token_status?token=' + token);
+    }
+
+    var token = LocalService.get('auth_token');
+
+    if (token) {
+      token = angular.fromJson(LocalService.get('auth_token')).token;
+      checkTokenStatus(token);
+    }
+
     return {
       authorize: function(access) {
         if (access === AccessLevels.user) {

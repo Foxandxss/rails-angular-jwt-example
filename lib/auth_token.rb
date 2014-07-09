@@ -1,7 +1,9 @@
+require 'jwt'
+
 module AuthToken
   def AuthToken.issue_token(payload)
-    puts payload
-    JWT.encode(payload, Rails.application.secrets.secret_key_base)
+    # Set expiration to 24 hours.
+    JWT.encode(payload, Rails.application.secrets.secret_key_base, claims: { exp: 86400 })
   end
 
   def AuthToken.valid?(token)

@@ -33,10 +33,12 @@ GEM
     bcrypt (3.1.7)
     builder (3.2.2)
     erubis (2.7.0)
+    hashie (3.1.0)
     hike (1.2.3)
     i18n (0.6.9)
     json (1.8.1)
-    jwt (1.0.0)
+    jwt-rb (0.0.2)
+      hashie
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -89,7 +91,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   bcrypt (~> 3.1.7)
-  jwt
+  jwt-rb
   rails (= 4.1.1)
   spring
   sqlite3
